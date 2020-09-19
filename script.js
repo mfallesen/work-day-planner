@@ -38,6 +38,7 @@ function printWorkDay(hour) {
         hourRow.append(workHour, tasks, save);
         save.append(savIco);
     }
+    
     timeOfDay();
 
 }
