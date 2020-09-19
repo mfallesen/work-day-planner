@@ -17,8 +17,9 @@ function printWorkDay(hour) {
         let hourRow = $("<div></div>");
         let workHour = $("<div></div>");
         let tasks = $("<textarea>");
-        let save = $("<button>")
-        let tVal = localStorage.getItem(`Task${i}`)
+        let save = $("<button>");
+        let tVal = localStorage.getItem(`Task${i}`);
+        let savIco = $("<i>");
 
 
         hourRow.attr("class", "row time-block");
@@ -29,10 +30,12 @@ function printWorkDay(hour) {
         tasks.attr("id", "text-" + i);
         tasks.val(tVal);
         save.attr("class", "col-md-2 saveBtn");
-        save.attr("id", "save-" + i)
+        save.attr("id", "save-" + i);
+        savIco.attr("class", "far fa-save");
 
         container.append(hourRow);
         hourRow.append(workHour, tasks, save);
+        save.append(savIco);
     }
     // IF statement for the tense changes
     
