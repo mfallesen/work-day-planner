@@ -44,13 +44,16 @@ function printWorkDay(hour) {
         let workID = $("#hour-" + (9 + j));
         let singleHour = workID[0].id.replace("hour-", "");
         let taskMod = $("#text-" + j);
-        console.log(taskMod);
+        // console.log(singleHour);
         if (currentHour === singleHour) {
             taskMod.addClass("present");
+            console.log(singleHour);
         } else if (currentHour > singleHour) {
             taskMod.addClass("past");
-        } else {
+            // console.log(singleHour);
+        } else if (currentHour < singleHour) {
             taskMod.addClass("future");
+            console.log(singleHour);
         }
     }
 }
