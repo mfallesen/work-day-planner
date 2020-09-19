@@ -3,7 +3,7 @@ let container = $(".container");
 let saveToLocal = $(".saveBtn");
 
 const workHours = ["9:00 am", "10:00 am", "11:00 am", "12:00 pm", "1:00 pm", "2:00 pm", "3:00 pm", "4:00 pm", "5:00 pm",];
-const currentHour = moment().format("H")
+const currentHour = parseInt(moment().format("H"))
 
 
 
@@ -38,25 +38,27 @@ function printWorkDay(hour) {
         hourRow.append(workHour, tasks, save);
         save.append(savIco);
     }
+    timeOfDay();
 
-
+}
+// update the calendar to reflect the progression of the work day
+function timeOfDay() {
     for (var j = 0; j < 9; j++) {
         let workID = $("#hour-" + (9 + j));
-        let singleHour = workID[0].id.replace("hour-", "");
+        let singleHour = parseInt(workID[0].id.replace("hour-", ""));
         let taskMod = $("#text-" + j);
-        // console.log(singleHour);
+
         if (currentHour === singleHour) {
             taskMod.addClass("present");
-            console.log(singleHour);
         } else if (currentHour > singleHour) {
             taskMod.addClass("past");
-            // console.log(singleHour);
-        } else if (currentHour < singleHour) {
+        } else {
             taskMod.addClass("future");
-            console.log(singleHour);
         }
     }
 }
+
+
 //gives the current date and time
 function currentDay() {
     $("#currentDay").text(now.format("LLLL"));
@@ -74,7 +76,7 @@ function saveTask(event) {
 //saves tasks to local storage
 $(".saveBtn").click(saveTask);
 //clears local Storage and  reloads page.
-$("#scheduleClear").click(function() {
+$("#scheduleClear").click(function () {
     localStorage.clear();
     location.reload();
 })
