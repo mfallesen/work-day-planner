@@ -7,4 +7,4 @@ The planner app can save your tasks and will remind you of anything you enter in
 
 A Handy "Clear My Schedule" buttons has also been added to provide a way to quickly reset the days tasks(or simply for the fun of being able to say clear my schedule)
 
-See it In action Here: https://mfallesen.github.io/work-day-planner-homework/
+See it In action Here: https://mfallesen.github.io/work-day-planner/
